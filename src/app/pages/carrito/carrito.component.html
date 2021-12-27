@@ -1,0 +1,36 @@
+<table class="table table-striped table-hover" *ngIf="exiteCarrito()">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Total</th>
+            <th scope="col">Iva</th>
+            <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr id="tabla" *ngFor="let producto of carrito2; let i = index" id="opciones" name="opciones">
+            <td scope="row">{{ i + 1 }}</td>
+            <td>{{ producto.nombre }}</td>
+            <td>{{ producto.precio }}</td>
+            <td>
+                {{producto.cantidad}}
+            </td>
+            <td>{{ producto.precio * producto.cantidad }}</td>
+            <td>{{ mostrarIva(producto.iva) }}</td>
+            <td>
+                <button mat-mini-fab color="warn">
+                    <mat-icon (click)="QuitarProducto(producto.id)">delete</mat-icon>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div *ngIf="!NoexiteCarrito()" class="container" style="padding-right: 100px;">
+    <h2 align="right">Subtotal = {{subtotal}}</h2>
+    <h2 align="right">Iva = {{iva}}</h2>
+    <h2 align="right">Total = {{totalCarrito}}</h2>
+</div>
+<h1 *ngIf="NoexiteCarrito()">No existen productos en el carrito</h1>

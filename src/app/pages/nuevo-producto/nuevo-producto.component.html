@@ -1,0 +1,94 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Agregar productos
+
+                        </h4>
+                        <p class="card-category">Datos del nuevo producto</p>
+                    </div>
+                    <div class="card-body">
+                        <form (ngSubmit)="guardar( f )" #f="ngForm">
+                            <div class="form-group">
+                                <label>Firebase ID</label>
+                                <input type="text" class="form-control" placeholder="Firebase ID" [(ngModel)]="productoNuevo.id" name="id" disabled="disabled" />
+                                <small class="form-text text-muted">Este campo es autogenerado</small
+                  >
+                </div>
+                <div class="form-group">
+                  <label>Nombre</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Nombre del producto" 
+                    [(ngModel)]="productoNuevo.nombre"
+                    name="nombre"
+                    required/>
+                </div>
+                <div class="form-group">
+                    <label>Categoria de producto</label>
+                    <br>
+                    <select name="select" [(ngModel)]="productoNuevo.categoria">
+                        <option value="Pizzas">Pizzas</option>
+                        <option value="Hamburguesas" selected>Hamburguesas</option>
+                        <option value="Bebidas">Bebidas</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                  <label>Precio</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Precio del producto"
+                    [(ngModel)]="productoNuevo.precio"
+                    name="precio"
+                    required/>
+                </div>
+                <div class="container-input-file">
+                  <label class="custom-file">
+                    <input type="file" (change)="ObtenerImagen($event)">
+                  </label>
+                </div>
+                <div class="form-group">
+                  <label>Estado</label>
+                  <br>
+                  <button *ngIf="productoNuevo.estado" class="btn btn-outline-success w-25" type="button" (click)="productoNuevo.estado = false">
+                      <i class="fa fa-dizzy"></i>
+                      activado
+                  </button>
+                  <button *ngIf="!productoNuevo.estado" class="btn btn-outline-danger w-25" type="button" (click)="productoNuevo.estado = true">
+                      <i class="fa fa-dizzy"></i>
+                      desactivado
+                  </button>
+                </div>
+                <div class="form-group">
+                    <label>IVA</label>
+                    <br>
+                    <button *ngIf="productoNuevo.iva" class="btn btn-outline-success w-25" type="button" (click)="productoNuevo.iva = false">
+                        <i class="fa fa-dizzy"></i>
+                        activado
+                    </button>
+                    <button *ngIf="!productoNuevo.iva" class="btn btn-outline-danger w-25" type="button" (click)="productoNuevo.iva = true">
+                        <i class="fa fa-dizzy"></i>
+                        desactivado
+                    </button>
+                  </div>
+                <hr>
+                <div class="form-group text-center">
+                  <button type="submit"
+                          class="btn btn-facebook">
+                    <i class="fa fa-save">
+                      Guardar
+                    </i>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <br />
+        </div>
+      </div>
+    </div>
+  </div>

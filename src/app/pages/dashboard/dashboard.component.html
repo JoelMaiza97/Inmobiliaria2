@@ -1,0 +1,90 @@
+<div *ngFor="let categoria of categorias" class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="container row">
+        <h1 class="button" (click)="condicionPizza(categoria)">{{categoria}}</h1>
+    </div>
+    <div class="row" *ngIf="(categoria == 'Pizzas') && condicionPizzas">
+        <div class="container card" style="max-width: 350px; " *ngFor="let pizza of pizzas ">
+            <div class="container ">
+                <img src="{{pizza.imagen}} " class="card-img-top ">
+                <div class="card-body ">
+                    <div class="row">
+                        <div class="col">
+                            <h2 class="card-title ">{{pizza.nombre}}</h2>
+                            <p class="card-text ">{{pizza.precio}}</p>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <button mat-mini-fab color="primary">
+                                    <mat-icon (click)="agregar(pizza)">plus_one</mat-icon>
+                            </button>
+                                <button mat-mini-fab color="warn" style="margin-left: 5px;">
+                                <mat-icon (click)="quitar(pizza)">exposure_neg_1</mat-icon>
+                            </button>
+                                <br>
+                                <br>
+                                <h1 style="text-align: center;">{{cantidad(pizza.id)}}</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="(categoria == 'Hamburguesas') && condicionHamburguesas">
+        <div class="container " style="max-width: 350px; " *ngFor="let hamburguesa of hamburguesas ">
+            <div class="container card">
+                <img src="{{hamburguesa.imagen}} " class="card-img-top ">
+                <div class="card-body ">
+                    <div class="row">
+                        <div class="col-7">
+                            <h2 class="card-title ">{{hamburguesa.nombre}}</h2>
+                            <p class="card-text ">{{hamburguesa.precio}}</p>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <button mat-mini-fab color="primary">
+                                    <mat-icon (click)="agregar(hamburguesa)">plus_one</mat-icon>
+                            </button>
+                                <button mat-mini-fab color="warn" style="margin-left: 5px;">
+                                <mat-icon (click)="quitar(hamburguesa)">exposure_neg_1</mat-icon>
+                            </button>
+                                <br>
+                                <br>
+                                <h1 style="text-align: center;">{{cantidad(hamburguesa.id)}}</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="(categoria == 'Bebidas') && condicionBebidas">
+        <div class="container " style="max-width: 350px; " *ngFor="let bebida of bebidas ">
+            <div class="container card">
+                <img src="{{bebida.imagen}} " class="card-img-top ">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-7">
+                            <h2 class="card-title ">{{bebida.nombre}}</h2>
+                            <p class="card-text ">{{bebida.precio}}</p>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <button mat-mini-fab color="primary">
+                                    <mat-icon (click)="agregar(bebida)">plus_one</mat-icon>
+                            </button>
+                                <button mat-mini-fab color="warn" style="margin-left: 5px;">
+                                <mat-icon (click)="quitar(bebida)">exposure_neg_1</mat-icon>
+                            </button>
+                                <br>
+                                <br>
+                                <h1 style="text-align: center;">{{cantidad(bebida.id)}}</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div>

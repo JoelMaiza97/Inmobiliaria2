@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="col-10">
+        <div class="card">
+            <div class="card-body">
+                <div>
+                    <button mat-button mat-raised-button color="primary" (click)="changeLabels()">Reiniciar grafico</button>
+                </div>
+                <div>
+                    <div>
+                        <div class="chart">
+                            <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType" [options]="pieChartOptions" [plugins]="pieChartPlugins" [colors]="pieChartColors" [legend]="pieChartLegend">
+                        </canvas>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div>
+                    <button mat-button mat-raised-button color="primary" (click)="removeSlice()" style="margin-right: 10px;">Remover sección</button>
+                    <button mat-button mat-raised-button color="primary" (click)="changeLegendPosition()">Cambiar la posicion de las leyendas</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,115 @@
+<!-- ============================================================== -->
+<!-- Main wrapper - style you can find in pages.scss -->
+<!-- ============================================================== -->
+
+<div class="row">
+    <div class="mat-card card col-lg-4 col-sm-12" style="background-color: white">
+        <div class="">
+            <div class="card-body">
+                <form class="form-horizontal form-material" id="loginform" [formGroup]="registerForm" (ngSubmit)="crearUsuario()">
+                    <a href="javascript:void(0)" class="text-center db"><img style="max-width: 180px;" src="./assets/images/nuevoLogo.jpeg" alt="Home" /><br /></a>
+                    <div class="form-group m-t-20">
+                        <div class="col-xs-12">
+                            <input class="form-control" type="number" required="" placeholder="Cedula" formControlName="cedula" />
+                        </div>
+                    </div>
+                    <div class="form-group m-t-20">
+                        <div class="col-xs-12">
+                            <input class="form-control" type="text" required="" placeholder="Nombre" formControlName="nombre" />
+                        </div>
+                    </div>
+                    <div class="form-group m-t-20">
+                        <div class="col-xs-12">
+                            <input class="form-control" type="text" required="" placeholder="Apellido" formControlName="apellido" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <input class="form-control" type="text" required="" placeholder="Correo electronico" formControlName="email" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <input class="form-control" type="password" required="" placeholder="Contraseña" formControlName="password" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <input class="form-control" type="password" required="" placeholder="Confirma contraseña" formControlName="password2" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <input class="form-control" type="text" required="" placeholder="Teléfono" formControlName="telefono" />
+                        </div>
+                    </div>
+                    <div class="form-group m-t-10">
+                        <div class="col-xs-12">
+                            <label class="form-control" type="text">{{AddressNow}}</label>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <div class="checkbox checkbox-primary p-t-0">
+                                <input id="checkbox-signup" type="checkbox" formControlName="terms" />
+                                <label for="checkbox-signup">
+                  Estoy de acuerdo <a href="#">Terminos</a></label
+                >
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col text-danger">
+              <p *ngIf="campoNoValido('nombre')">Nombre: es obligatorio</p>
+              <p *ngIf="campoNoValido('apellido')">Apellido: es obligatorio</p>
+              <p *ngIf="campoNoValido('email')">
+                Email: obligatorio y tiene que ser valido
+              </p>
+              <p *ngIf="campoNoValido('telefono')">Teléfono: es obligatoria</p>
+              <p *ngIf="campoNoValido('direccion')">
+                Dirección: es obligatoria
+              </p>
+              <p *ngIf="aceptaTerminos()">
+                Debe aceptar los terminos y condiciones
+              </p>
+              <p *ngIf="contraseniasNoValidas()">
+                Las contraseñas deben ser iguales
+              </p>
+            </div>
+          </div>
+          <div class="form-group text-center m-t-20">
+            <div class="col-xs-12">
+              <button
+                class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light"
+                type="submit"
+              >
+                Registrate
+              </button>
+            </div>
+          </div>
+          <div class="form-group m-b-0">
+            <div class="col-sm-12 text-center">
+              <p>
+                Ya tengo una cuenta
+                <a routerLink="/login" class="text-info m-l-5"
+                  ><b>Ingresar</b></a
+                >
+              </p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col mat-card" style="background-color: white">
+    <h2>Ingresa tu dirección por favor:</h2>
+    <app-mapa
+      (valorSalidaX)="cambioValorHijoX($event)"
+      (valorSalidaY)="cambioValorHijoY($event)"
+      (address)="cambioValorAddress($event)"
+    ></app-mapa>
+  </div>
+</div>
+<!-- ============================================================== -->
+<!-- End Wrapper -->
+<!-- ============================================================== -->

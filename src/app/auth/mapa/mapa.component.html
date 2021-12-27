@@ -1,0 +1,8 @@
+<mat-card style="max-width: 1050px;">
+    <mat-card-title>Mapa</mat-card-title>
+    <mat-card-content>
+        <agm-map (mapReady)="mapReady($event)" [latitude]="lat" [longitude]="lng">
+            <agm-marker [markerDraggable]="true" [latitude]="lat" [longitude]="lng" (dragEnd)="markerDragEnd($event)"></agm-marker>
+        </agm-map>
+    </mat-card-content>
+</mat-card>

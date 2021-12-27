@@ -1,0 +1,20 @@
+<table class="table table-striped table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Producto</th>
+            <th scope="col">Cantidad</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr id="tabla" id="opciones" *ngFor="let ped of this.pedidoFinal; let i = index" name="opciones">
+            <td>{{ped[1]}}</td>
+            <td>{{ped[0]}}</td>
+            <td>{{ped[2]}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<button mat-raised-button routerLink="/dashboard/pedidos" style="margin-left: 10px;" color="primary">REGRESAR
+    <!-- <mat-icon (click)="Despachar(pedido.id)">edit</mat-icon> -->
+</button>

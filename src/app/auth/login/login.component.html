@@ -1,0 +1,37 @@
+<section id="wrapper">
+    <div class="login-register" style="
+      background-image: url(../assets/images/background/login-register.jpg);
+    ">
+        <div class="login-box card">
+            <div class="card-body">
+                <form class="form-horizontal form-material" id="loginform" [formGroup]="loginForm" (ngSubmit)="login()" action="index.html">
+                    <h3 class="box-title m-b-20">Ingresar</h3>
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <input class="form-control" type="text" required="" placeholder="email" formControlName="email" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <input class="form-control" type="password" required="" placeholder="password" formControlName="password" />
+                        </div>
+                    </div>
+                    <div class="form-group text-center">
+                        <div class="col-xs-12 p-b-20">
+                            <button class="btn btn-block btn-lg btn-info btn-rounded" type="submit">
+                Ingresar
+              </button>
+                        </div>
+                    </div>
+                    <div class="form-group m-b-0">
+                        <div class="col-sm-12 text-center">
+                            No tienes una cuenta?
+                            <a routerLink="/register" class="text-info m-l-5"><b>Registrate</b></a
+              >
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

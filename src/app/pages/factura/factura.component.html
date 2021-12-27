@@ -1,0 +1,79 @@
+<div class="card-body col-12">
+    <div class="row">
+        <div class="col-6">
+            <h4 class="card-title">Datos del Cliente</h4>
+            <form (submit)="HacerPedido(forma)" #forma="ngForm" class="form-material">
+                <div class="form-group">
+                    <input type="text" class="form-control" [(ngModel)]=datos.cedula name="cedula" placeholder="Cedula" required/>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" required [(ngModel)]=datos.nombre name="nombre" placeholder="Nombre" />
+                </div>
+                <div class="form-group">
+                    <input name="apellido" [(ngModel)]=datos.apellido required class="form-control" placeholder="Apellido" />
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" required name="direccion" [(ngModel)]=datos.direccion value="{{AddressNow}}" placeholder="Direccion" />
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" required name="telefono" [(ngModel)]=datos.telefono placeholder="Telefono" />
+                </div>
+                <div class="<col>" style="text-align: center;">
+                    <button type="submit" mat-raised-button color="primary" style="margin-right: 10px;">
+                        HACER PEDIDO
+                    </button>
+                    <button type="button" (click)="CargarDatos()" mat-raised-button color="accent">
+                        CARGAR MIS DATOS
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="col-sm-12 col-lg-6">
+            <h2>Desea cambiar la direccion de envío?</h2>
+            <app-mapa (valorSalidaX)="cambioValorHijoX($event)" (valorSalidaY)="cambioValorHijoY($event)" (address)="cambioValorAddress($event)"></app-mapa>
+        </div>
+    </div>
+</div>
+
+<br />
+
+<table class="table table-striped table-hover" *ngIf="exiteCarrito()">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Total</th>
+            <th scope="col">Iva</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr id="tabla" *ngFor="let producto of carrito2; let i = index" id="opciones" name="opciones">
+            <td scope="row">{{ i + 1 }}</td>
+            <td>{{ producto.nombre }}</td>
+            <td>{{ producto.precio }}</td>
+            <td>
+                <!-- <textarea rows="1" cols="4" id="cantidad" name="cantidad" value="{{producto.cantidad}}"></textarea> -->
+                <!-- <input value="{{producto.cantidad}}" id="cant" type="text" style="width: 30px;"> -->
+                {{ producto.cantidad }}
+            </td>
+            <td>{{ producto.precio * producto.cantidad }}</td>
+            <td>{{ mostrarIva(producto.iva) }}</td>
+        </tr>
+    </tbody>
+</table>
+<div class="card-body col-12">
+    <div class="row">
+        <div>
+            <br />
+            <br />
+
+        </div>
+        <div class="col">
+            <h2 align="right">Subtotal = {{ subtotal }}</h2>
+            <h2 align="right">Iva = {{ iva }}</h2>
+            <h2 align="right">Total = {{ totalCarrito }}</h2>
+        </div>
+    </div>
+</div>
